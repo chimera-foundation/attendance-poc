@@ -30,6 +30,7 @@ export const viewport: Viewport = {
 
 import Shell from "./components/Shell";
 import { Toaster } from 'react-hot-toast';
+import { ServiceWorkerRegister } from "./components/ServiceWorkerRegister";
 
 export default function RootLayout({
   children,
@@ -43,6 +44,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-[#f8f9ff] text-[#0b1c30] antialiased">
         <Toaster position="top-center" />
+        <ServiceWorkerRegister />
         <AppProvider>
           <Shell>
             {children}

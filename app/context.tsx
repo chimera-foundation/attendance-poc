@@ -47,25 +47,25 @@ const AppContext = createContext<AppContextType | undefined>(undefined);
 function processLog(rawLog: any): AttendanceLog {
   const checkInISO = rawLog.checkInISO;
   const checkOutISO = rawLog.checkOutISO;
-  
+
   if (!checkInISO || !checkOutISO) {
     return rawLog as AttendanceLog;
   }
 
   const checkInDate = new Date(checkInISO);
   const checkOutDate = new Date(checkOutISO);
-  
+
   const diffMs = checkOutDate.getTime() - checkInDate.getTime();
   const totalMins = Math.floor(diffMs / 60000);
-  
+
   const realHrs = Math.floor(totalMins / 60);
   const realMins = totalMins % 60;
   const hoursStr = `${realHrs}h ${realMins}m`;
 
   const options: Intl.DateTimeFormatOptions = { timeZone: 'Asia/Jakarta', hour: '2-digit', minute: '2-digit', hour12: false };
-  const timeStr = checkInDate.toLocaleTimeString('en-US', options); 
+  const timeStr = checkInDate.toLocaleTimeString('en-US', options);
   const [hour, minute] = timeStr.split(':').map(Number);
-  
+
   let status: 'On Time' | 'Late' | 'Overtime' | 'Absent' = 'On Time';
   if (hour > 8 || (hour === 8 && minute > 11)) {
     status = 'Late';
@@ -128,13 +128,13 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
       });
 
 
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js').catch((err) => {
-          console.error('ServiceWorker registration failed: ', err);
-        });
-      });
-    }
+    // if ('serviceWorker' in navigator) {
+    //   window.addEventListener('load', () => {
+    //     navigator.serviceWorker.register('/sw.js').catch((err) => {
+    //       console.error('ServiceWorker registration failed: ', err);
+    //     });
+    //   });
+    // }
   }, []);
 
   const login = async (email: string, password?: string): Promise<boolean> => {
