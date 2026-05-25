@@ -118,9 +118,9 @@ export default function LoginPage() {
               <label className="text-[11px] font-semibold tracking-wider text-secondary" htmlFor="password">
                 PASSWORD
               </label>
-              <a className="text-[11px] font-semibold text-primary hover:text-primary-container transition-colors" href="#">
+              {/* <a className="text-[11px] font-semibold text-primary hover:text-primary-container transition-colors" href="#">
                 Forgot Password?
-              </a>
+              </a> */}
             </div>
             <div className="relative group">
               <IconLock className="w-5 h-5 absolute left-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors" />
