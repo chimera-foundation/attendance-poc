@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  allowedDevOrigins: ['aglisten-innovatory-jana.ngrok-free.dev'],
 };
 
 export default nextConfig;
