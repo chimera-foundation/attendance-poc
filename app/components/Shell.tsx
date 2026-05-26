@@ -37,7 +37,7 @@ export default function Shell({ children }: ShellProps) {
   const navItems = [
     { label: 'Home', icon: IconFingerprint, path: '/dashboard' },
     { label: 'Logs', icon: IconHistory, path: '/history' },
-    // { label: 'Profile', icon: IconPerson, path: '/profile' },
+    { label: 'Leave', icon: IconPerson, path: '/requests' },
   ];
 
   const handleNavigate = (path: string) => {
